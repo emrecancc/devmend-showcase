@@ -6,10 +6,7 @@
   "engines": { "node": ">=18" },
   "scripts": {
     "build": "tsc --noEmit",
-    "test": "node --loader ts-node/esm tests/run-all.ts",
-    "test:unit": "node --loader ts-node/esm tests/unit/index.ts",
-    "test:integration": "node --loader ts-node/esm tests/integration/api.ts",
-    "lint": "eslint src/ --ext .ts"
+    "test": "node -r ts-node/register tests/unit/index.ts && node -r ts-node/register tests/integration/api.ts"
   },
   "dependencies": {
     "express": "^4.18.2",
@@ -19,7 +16,6 @@
     "jsonwebtoken": "^9.0.2",
     "bcryptjs": "^2.4.3",
     "pg": "^8.11.3",
-    "redis": "^4.6.10",
     "axios": "^1.6.2",
     "winston": "^3.11.0",
     "date-fns": "^2.30.0"
